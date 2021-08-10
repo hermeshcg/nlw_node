@@ -1,15 +1,10 @@
 import express from 'express';
+import routes from './routes';
+
+import './database';
 
 const app = express();
 
-app.get('/', (req, res) => {
-  return res.json({
-    message: ':)',
-  });
-});
-
-app.post('/test-post', (request, response) => {
-  return response.send('Olá NLW método POST');
-});
+app.use(routes);
 
 app.listen(3001, () => console.log('Server is running'));
